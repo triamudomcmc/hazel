@@ -9,9 +9,10 @@ export { IUserData, UserDataCollectionType } from './builtin/types/UserData'
 
 // builtin
 export { FirestoreCollection } from './builtin/data/FirestoreCollection'
+export { FirestoreDatabase } from './builtin/data/FirestoreDatabase'
 export { ID } from './builtin/data/ID/ID'
 export { IDUtil } from './builtin/data/ID/IDUtil'
-export { Mutator } from './builtin/data/Mutator'
+export { Mutators } from './builtin/data/Mutators'
 export { ClubRecord } from './builtin/data/record/ClubRecord'
 export { DocumentTemplate } from './builtin/document/DocumentTemplate'
 export { EvaluationDocument } from './builtin/document/EvaluationDocument'

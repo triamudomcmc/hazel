@@ -1,9 +1,14 @@
+/**
+ * The **DMap<K, V>()** class
+ * encapsulates any object and provides utilities method.
+ * @category Lib
+ */
 export class DMap<K extends string, V> {
   protected content: Record<K, V>
 
   /**
    * The **DMap<K, V>()** class
-   * encapsulate any object and provides utilities method.
+   * encapsulates any object and provides utilities method.
    */
   constructor(content: Record<K, V> | [K, V][] | Record<K, V>[]) {
     if (Array.isArray(content)) {
@@ -48,7 +53,7 @@ export class DMap<K extends string, V> {
   }
 
   /**
-   * The **iterable()** method format record to its iterable form.
+   * The **iterable()** method formats record to its iterable form.
    */
   public iterable(): [K, V][] {
     return this.keys().map((k) => [k, this.content[k]])
@@ -75,7 +80,7 @@ export class DMap<K extends string, V> {
   }
 
   /**
-   * The **iterateSync()** method synchronously iterate through record's key and value.
+   * The **iterateSync()** method synchronously iterates through record's key and value.
    * @param c - Function that is called for every element of arr. Each time callbackFn executes.
    */
   public iterateSync(
@@ -87,7 +92,7 @@ export class DMap<K extends string, V> {
   }
 
   /**
-   * The **iterate()** method iterate through record's key and value.
+   * The **iterate()** method iterates through record's key and value.
    * @param c - Function that is called for every element of arr. Each time callbackFn executes.
    */
   public async iterate(
@@ -111,13 +116,11 @@ export class DMap<K extends string, V> {
   }
 
   /**
-   * The **filter()** method filter records' key, value, which the matching function returned true.
+   * The **filter()** method filters records' key, value, which the matching function returned true.
    * @param matcher - Matching function matches records' under provided condition.
    */
-  public filter(matcher: (k: K, v: V) => boolean): Record<K, V> {
-    return new DMap<K, V>(
-      this.iterable().filter(([k, v]) => matcher(k, v))
-    ).getRecord()
+  public filter(matcher: (k: K, v: V) => boolean): DMap<K, V> {
+    return new DMap<K, V>(this.iterable().filter(([k, v]) => matcher(k, v)))
   }
 
   /**
@@ -126,7 +129,7 @@ export class DMap<K extends string, V> {
    */
   public groupBy<G extends string>(
     keyLocator: (v: V) => G
-  ): Record<G, Record<K, V>[] | undefined> {
+  ): DMap<G, Record<K, V>[] | undefined> {
     const grouped: Record<G, Record<K, V>[]> = {} as Record<G, Record<K, V>[]>
     this.iterateSync((k, v, _, obj) => {
       const gKey = keyLocator(v)
@@ -136,7 +139,7 @@ export class DMap<K extends string, V> {
       }
       grouped[gKey] = [obj]
     })
-    return grouped
+    return new DMap(grouped)
   }
 
   /**

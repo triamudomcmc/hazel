@@ -4,7 +4,10 @@ import type { CollectionMutator } from '../../util/database/Collection'
 import DocumentSnapshot = firestore.DocumentSnapshot
 import QuerySnapshot = firestore.QuerySnapshot
 
-export class Mutator {
+/**
+ * @category Built-in
+ */
+export class Mutators {
   /**
    * The **SpecificKeyFieldKVMutator()** method produce {@link CollectionMutator} that mutates collection array to key-value object.
    * @param keyLocator - Key locator function finds the value that will be object key.
@@ -27,5 +30,5 @@ export class Mutator {
    * The **DefaultCollectionKeyValueMutator** field is a default key-value mutator.
    */
   public static DefaultCollectionKeyValueMutator: CollectionMutator<QuerySnapshot> =
-    Mutator.SpecificKeyFieldKVMutator()
+    Mutators.SpecificKeyFieldKVMutator()
 }

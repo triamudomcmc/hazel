@@ -1,41 +1,38 @@
-import * as dotenv from 'dotenv'
-import admin, { firestore } from 'firebase-admin'
-
 import { ConsoleColour } from '../debugger/Colour'
 import { Debugger } from '../debugger/Debugger'
-import Firestore = firestore.Firestore
 
-dotenv.config()
+/**
+ * @template T - A certain database type definition.
+ * @group Abstracts
+ */
+export abstract class Database<T> {
+  private readonly db: T
 
-export class Database {
-  private db: Firestore
-
-  private projectID = process.env.FCERT_PROJECT_ID
-
-  private debug = new Debugger('DBUnit')
+  protected debug = new Debugger(this.constructor.name || 'DBUnit')
 
   constructor() {
-    try {
-      this.db = admin
-        .initializeApp({
-          credential: admin.credential.cert({
-            projectId: this.projectID,
-            clientEmail: process.env.FCERT_CLIENT_EMAIL,
-            privateKey: process.env.FCERT_PRIVATE_KEY
-          })
-        })
-        .firestore()
-    } catch (e) {
-      this.debug.err('unable to initialise database.')
-      throw e
-    }
+    this.db = this.initDB()
   }
 
-  private isProdDB() {
-    return this.projectID === 'clubreg-fa68a'
-  }
+  /**
+   * The **initDB()** abstract method will be called in the class constructor to initialise the database.
+   * This returns the database specified by generic **T**.
+   * @protected
+   * @override
+   * @abstract
+   */
+  protected abstract initDB(): T
 
-  public getDB(): Firestore {
+  /**
+   * The **isProdDB()** abstract method checks the connection whether it is a production or not.
+   * @protected
+   */
+  protected abstract isProdDB(): boolean
+
+  /**
+   * The **getDB()** method returns database instance and prevents user from accidentally access the production database.
+   */
+  public getDB(): T {
     if (this.isProdDB()) {
       if (process.env.RUNTIME_MODE !== 'PROD') {
         throw Error(

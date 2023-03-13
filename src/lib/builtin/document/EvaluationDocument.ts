@@ -17,6 +17,9 @@ interface IClubMemberData {
 
 const pdf = require('pdf-node')
 
+/**
+ * @category Built-in
+ */
 export class EvaluationDocument {
   private readonly clubID: MainClubIDType
 

@@ -2,6 +2,9 @@
 
 import { IDMap } from '../../../util/data/IDMap'
 
+/**
+ * @category Built-in
+ */
 export abstract class ID {
   public static readonly systemClubs = new IDMap({
     ก30901: 'คณิตศาสตร์',

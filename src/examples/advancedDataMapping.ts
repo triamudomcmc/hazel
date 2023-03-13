@@ -21,7 +21,7 @@ export const advancedDataMappingSnippet = async (debug: Debugger) => {
     const groupedByAction = new DMap(v).groupBy((d) => d.action)
 
     // Map grouped record to [state]: count form
-    const countMap = new DMap(groupedByAction).map((gk, gv) => ({
+    const countMap = groupedByAction.map((gk, gv) => ({
       [gk]: gv?.length
     }))
 

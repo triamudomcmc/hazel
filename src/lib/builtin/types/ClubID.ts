@@ -1,3 +1,6 @@
+/**
+ * @category Built-in
+ */
 export type SystemClubIDType =
   | 'ก30901'
   | 'ก30901-1'
@@ -89,6 +92,9 @@ export type SystemClubIDType =
   | 'ก30953'
   | string
 
+/**
+ * @category Built-in
+ */
 export type MainClubIDType =
   | 'ก30901'
   | 'ก30902'

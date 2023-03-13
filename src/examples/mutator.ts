@@ -1,5 +1,5 @@
 import type { Debugger, UserDataCollectionType } from '@lib'
-import { DMap, FirestoreCollection, IDUtil, Mutator } from '@lib'
+import { DMap, FirestoreCollection, IDUtil, Mutators } from '@lib'
 
 const mutatorExampleSnippet = async (debug: Debugger) => {
   /*
@@ -11,7 +11,7 @@ const mutatorExampleSnippet = async (debug: Debugger) => {
   const users = new FirestoreCollection<UserDataCollectionType>(
     'data'
   ).setDefaultMutator(
-    Mutator.SpecificKeyFieldKVMutator((doc) => doc.get('student_id'))
+    Mutators.SpecificKeyFieldKVMutator((doc) => doc.get('student_id'))
   )
 
   // Load data from the local cache and fetch if there was no cache.

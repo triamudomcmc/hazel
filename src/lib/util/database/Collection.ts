@@ -4,16 +4,21 @@ import type { DataType } from '../data/DataType'
 import { Debugger } from '../debugger/Debugger'
 import { Files } from '../io/Files'
 
+/**
+ * @template T - A received collection type definition
+ * @category Lib
+ */
 export type CollectionMutator<T> = (d: T) => DataType
 
 /**
- * @template T, M
- * @constructor
+ * @template T - A collection data type definition.
+ * @template M - A {@link CollectionMutator} received collection type definition.
+ * @group Abstracts
  */
 export abstract class Collection<T extends DataType, M = any> {
   private readonly name: string
 
-  private debug = new Debugger(this.constructor.name || 'Collection')
+  protected debug = new Debugger(this.constructor.name || 'Collection')
 
   protected abstract collectionMutator: CollectionMutator<M>
 
@@ -23,6 +28,8 @@ export abstract class Collection<T extends DataType, M = any> {
 
   /**
    * The **Collection<T>()** class hold data resources. User can choose either fetch from database or cache.
+   * @template T - A collection data type definition.
+   * @template M - A {@link CollectionMutator} received collection type definition.
    * @param name - The collection name.
    */
   constructor(name: string) {
@@ -30,11 +37,19 @@ export abstract class Collection<T extends DataType, M = any> {
     this.resourcePath = path.join(this.rootPath, `${this.name}.json`)
   }
 
+  /**
+   * The **retrieveCollection()** abstract method will be called internally to fetch collection data.
+   * Note: Different databases require different procedure to access its collection.
+   * @param collectionName - This will be the same as `this.name`.
+   * @protected
+   * @override
+   * @abstract
+   */
   protected abstract retrieveCollection(collectionName: string): Promise<M>
 
   /**
    * The **setDefaultMutator()** method set Collection's defaultMutator, which will be used when resource are being fetched automatically.
-   * @param mutator - Mutator mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
+   * @param mutator - Mutators mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
    */
   public setDefaultMutator(mutator: CollectionMutator<M>): Collection<T> {
     this.collectionMutator = mutator
@@ -43,7 +58,7 @@ export abstract class Collection<T extends DataType, M = any> {
 
   /**
    * The **fetch()** method fetch the collection from database, mutate, and then save it as a cache.
-   * @param [mutator] - Mutator mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
+   * @param [mutator] - Mutators mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
    * @return Promise<T>
    */
   public async fetch(

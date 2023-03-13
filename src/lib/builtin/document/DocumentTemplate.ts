@@ -2,6 +2,9 @@ import fs from 'fs'
 
 import { Debugger } from '../../util/debugger/Debugger'
 
+/**
+ * @category Built-in
+ */
 export class DocumentTemplate {
   public template: string
 

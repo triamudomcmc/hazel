@@ -1,6 +1,9 @@
 import type { MainClubIDType, SystemClubIDType } from '../../types/ClubID'
 import { ID } from './ID'
 
+/**
+ * @category Built-in
+ */
 export class IDUtil extends ID {
   public static applyOverriddenLayer(id: SystemClubIDType): string {
     const layer = this.overriddenTranslationLayer.reverse()

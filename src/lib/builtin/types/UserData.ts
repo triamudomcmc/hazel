@@ -1,5 +1,8 @@
 import type { SystemClubIDType } from './ClubID'
 
+/**
+ * @category Built-in
+ */
 export interface IUserData {
   student_id: string
   title: string
@@ -17,4 +20,7 @@ export interface IUserData {
   tucmc?: boolean
 }
 
+/**
+ * @category Built-in
+ */
 export type UserDataCollectionType = Record<string, IUserData>

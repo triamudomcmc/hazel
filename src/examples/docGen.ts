@@ -9,7 +9,7 @@ import {
   DocumentTemplate,
   EvaluationDocument,
   FirestoreCollection,
-  Mutator
+  Mutators
 } from '@lib'
 
 export const docGenSnippet = async (debug: Debugger) => {
@@ -21,7 +21,7 @@ export const docGenSnippet = async (debug: Debugger) => {
 
   const uData = await new FirestoreCollection<UserDataCollectionType>('data')
     .setDefaultMutator(
-      Mutator.SpecificKeyFieldKVMutator((doc) => doc.get('student_id'))
+      Mutators.SpecificKeyFieldKVMutator((doc) => doc.get('student_id'))
     )
     .readFromCache(true)
   if (!uData) return
@@ -43,7 +43,7 @@ export const docGenSnippet = async (debug: Debugger) => {
       },
       {
         all: clubEMap,
-        ...grouped
+        ...grouped.getRecord()
       },
       new DMap(uData)
     )

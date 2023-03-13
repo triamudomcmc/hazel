@@ -3,6 +3,11 @@ import { DMap } from '../../../util/data/DMap'
 import type { MainClubIDType, SystemClubIDType } from '../../types/ClubID'
 import { ID } from '../ID/ID'
 
+/**
+ * The **ClubRecord<T extends {@link SystemClubIDType} | {@link MainClubIDType}>()** class
+ * encapsulate any object with {@link DataType} value and provides utilities method.
+ * @category Built-in
+ */
 export class ClubRecord<
   T extends SystemClubIDType | MainClubIDType,
   V extends DataType

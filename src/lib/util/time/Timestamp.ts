@@ -13,6 +13,9 @@ interface Time {
   }
 }
 
+/**
+ * @category Lib
+ */
 export class TimestampUtil {
   /**
    * The **currentTime()** method get current timestamp.
@@ -20,7 +23,6 @@ export class TimestampUtil {
    * @param padMethod - Padding method
    * @returns timestamp in {@link Time} format.
    */
-
   public static currentTime(
     timestamp?: number,
     padMethod = NumberUtil.zeroPad

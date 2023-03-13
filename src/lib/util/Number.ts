@@ -1,3 +1,6 @@
+/**
+ * @category Lib
+ */
 export class NumberUtil {
   /**
    * The **zeroPad()** method pad 1-char-length number.
