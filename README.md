@@ -21,7 +21,7 @@ Default exported data directory is ./resource, which git ignored by default. To 
 </p>
 
 ## Documentation
-<a>Documentation is here :)</a>
+<a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/triamudomcmc/hazel/main/docs/modules.html">Documentation is here :)</a>
 
 <br/>
 Made with ♥ by TUCMC
