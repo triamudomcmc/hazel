@@ -17,7 +17,7 @@ export class FirestoreDatabase extends Database<Firestore> {
       return admin
         .initializeApp({
           credential: admin.credential.cert({
-            projectId: this.projectID,
+            projectId: process.env.FCERT_PROJECT_ID,
             clientEmail: process.env.FCERT_CLIENT_EMAIL,
             privateKey: process.env.FCERT_PRIVATE_KEY
           })
