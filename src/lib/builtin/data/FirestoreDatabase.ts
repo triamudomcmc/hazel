@@ -19,13 +19,12 @@ export class FirestoreDatabase extends Database<Firestore> {
           credential: admin.credential.cert({
             projectId: process.env.FCERT_PROJECT_ID,
             clientEmail: process.env.FCERT_CLIENT_EMAIL,
-            privateKey: process.env.FCERT_PRIVATE_KEY
+            privateKey: process.env.FCERT_PRIVATE_KEY?.replace(/\\n/gm, '\n')
           })
         })
         .firestore()
     } catch (e) {
-      this.debug.err('unable to initialise database.')
-      throw e
+      return admin.firestore()
     }
   }
 

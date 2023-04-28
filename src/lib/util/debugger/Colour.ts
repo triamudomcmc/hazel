@@ -12,6 +12,8 @@ export class ConsoleColour {
 
   public static readonly YELLOW = '\u001b[33m'
 
+  public static readonly GREEN = '\u001b[32m'
+
   public static readonly BGYELLOW = '\u001b[43m'
 
   public static readonly GRAY = '\u001b[37m'

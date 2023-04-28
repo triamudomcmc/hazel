@@ -15,7 +15,7 @@ export const basicExampleSnippet = async (debug: Debugger) => {
   const evalData = await evalColl.readFromCache(true)
   if (!evalData) return
 
-  const evalRecords = new ClubRecord(evalData)
+  const evalRecords = new ClubRecord(evalData.getRecord())
 
   // Compare keys with systemClubs using keyDiff() method.
   const missing = ID.systemClubs.keyDiff(evalRecords.keys())

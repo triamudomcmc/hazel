@@ -20,7 +20,7 @@ export class Mutators {
     return (d: QuerySnapshot) => {
       const kvObj: any = {}
       d.docs.forEach((doc) => {
-        kvObj[keyLocator(doc)] = doc.data()
+        kvObj[keyLocator(doc)] = { _docID: doc.id, ...doc.data() }
       })
       return kvObj
     }

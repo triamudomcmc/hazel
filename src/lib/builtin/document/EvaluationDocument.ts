@@ -1,6 +1,7 @@
 import dpath from 'path'
 
 import { DMap } from '../../util/data/DMap'
+import type { ReferableMapEntity } from '../../util/data/ReferableEntity'
 import { IDUtil } from '../data/ID/IDUtil'
 import type { MainClubIDType } from '../types/ClubID'
 import type { EvaluateType, IEvaluateResult } from '../types/Evaluate'
@@ -27,13 +28,13 @@ export class EvaluationDocument {
 
   private docInfo
 
-  private userMap: DMap<string, IUserData>
+  private userMap: DMap<string, ReferableMapEntity<IUserData>>
 
   constructor(
     clubID: MainClubIDType,
     docInfo: { semester: string; year: string },
     clubMemberData: IClubMemberData,
-    uMap: DMap<string, IUserData>
+    uMap: DMap<string, ReferableMapEntity<IUserData>>
   ) {
     this.clubID = clubID
     this.clubMemberData = clubMemberData
@@ -69,9 +70,11 @@ export class EvaluationDocument {
         const userData = this.userMap.get(k)
         if (!userData) throw Error(`missing user id:${k}`)
         return {
-          name: `${userData.title}${userData.firstname} ${userData.lastname}`,
-          grade: parseInt(userData.level, 10),
-          room: parseInt(userData.room, 10),
+          name: `${userData.get('title')}${userData.get(
+            'firstname'
+          )} ${userData.get('lastname')}`,
+          grade: parseInt(userData.get('level'), 10),
+          room: parseInt(userData.get('room'), 10),
           e:
             // eslint-disable-next-line no-nested-ternary
             v.action === 'break'

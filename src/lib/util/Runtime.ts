@@ -18,10 +18,16 @@ export class Runtime {
   constructor(MODE: 'DEV' | 'PROD') {
     this.MODE = MODE
 
-    const resDir = fs.existsSync('resource/collection')
+    const resDir = fs.existsSync(`resource/collection/${this.MODE}`)
     if (!resDir) {
       this.debug.info('created resource folder for data collections.')
-      fs.mkdirSync('resource/collection', { recursive: true })
+      fs.mkdirSync(`resource/collection/${this.MODE}`, { recursive: true })
+    }
+
+    const revDir = fs.existsSync(`review/${this.MODE}`)
+    if (!revDir) {
+      this.debug.info('created review folder for data collections.')
+      fs.mkdirSync(`review/${this.MODE}`, { recursive: true })
     }
 
     process.env.RUNTIME_MODE = MODE

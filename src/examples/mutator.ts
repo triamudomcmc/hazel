@@ -1,5 +1,5 @@
 import type { Debugger, UserDataCollectionType } from '@lib'
-import { DMap, FirestoreCollection, IDUtil, Mutators } from '@lib'
+import { FirestoreCollection, IDUtil, Mutators } from '@lib'
 
 const mutatorExampleSnippet = async (debug: Debugger) => {
   /*
@@ -18,25 +18,22 @@ const mutatorExampleSnippet = async (debug: Debugger) => {
   const userData = await users.readFromCache(true)
   if (!userData) return
 
-  // Encapsulate the record with DMap and access its utility methods.
-  const userDataMap = new DMap(userData)
-
   // Find every student that their room property is 59.
-  let students = userDataMap.findValues((v) => v.room === '59')
+  let students = userData.findValues((v) => v.get('room') === '59')
 
   // Perform basic data array operations
   // Sort by number
   students = students.sort(
-    (a, b) => parseInt(a.number, 10) - parseInt(b.number, 10)
+    (a, b) => parseInt(a.get('number'), 10) - parseInt(b.get('number'), 10)
   )
 
   // Display data array
   debug.table(
     students.map((u) => ({
-      number: u.number,
-      student_id: u.student_id,
-      club: u.club,
-      clubName: IDUtil.translateToClubName(u.club)
+      number: u.get('number'),
+      student_id: u.get('student_id'),
+      club: u.get('club'),
+      clubName: IDUtil.translateToClubName(u.get('club'))
     }))
   )
 }

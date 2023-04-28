@@ -26,12 +26,12 @@ export const docGenSnippet = async (debug: Debugger) => {
     .readFromCache(true)
   if (!uData) return
 
-  const eMap = new ClubRecord(eData).transformToMainClubs()
+  const eMap = new ClubRecord(eData.getRecord()).transformToMainClubs()
   const template = new DocumentTemplate('assets/eTemplate.html')
 
   await eMap.iterate(async (key, value) => {
     debug.info(`working on ${key}`)
-    const clubEMap = new DMap(value)
+    const clubEMap = new DMap(value.data())
 
     const grouped = clubEMap.groupBy((v) => v.action)
 
@@ -45,7 +45,7 @@ export const docGenSnippet = async (debug: Debugger) => {
         all: clubEMap,
         ...grouped.getRecord()
       },
-      new DMap(uData)
+      uData
     )
 
     await doc.generate(template, `${key}`)

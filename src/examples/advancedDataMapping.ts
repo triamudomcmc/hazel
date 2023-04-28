@@ -13,12 +13,12 @@ export const advancedDataMappingSnippet = async (debug: Debugger) => {
   if (!evalData) return
 
   // Encapsulate evalData with ClubRecord
-  const evalMap = new ClubRecord(evalData)
+  const evalMap = new ClubRecord(evalData.getRecord())
 
   // Create each state count for every club
   const allCountMap = evalMap.map((k, v) => {
     // Group evaluation data by state value
-    const groupedByAction = new DMap(v).groupBy((d) => d.action)
+    const groupedByAction = new DMap(v.data()).groupBy((d) => d.action)
 
     // Map grouped record to [state]: count form
     const countMap = groupedByAction.map((gk, gv) => ({

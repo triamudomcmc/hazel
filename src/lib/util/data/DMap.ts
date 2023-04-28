@@ -1,3 +1,5 @@
+import { ConsoleColour } from '../debugger/Colour'
+
 /**
  * The **DMap<K, V>()** class
  * encapsulates any object and provides utilities method.
@@ -206,10 +208,24 @@ export class DMap<K extends string, V> {
     return this.content[key]
   }
 
+  public set(key: K, value: V): void {
+    if (key in this.content) {
+      throw Error(
+        `${ConsoleColour.BGRED}${ConsoleColour.BOLD}DMap.set() must be used to set new key to the map.${ConsoleColour.RESET}`
+      )
+    }
+    this.content[key] = value
+    return
+  }
+
   /**
    * The **getRecord()** method gives the {@link Record} of the DMap.
    */
   public getRecord(): Record<K, V> {
     return this.content
+  }
+
+  public isLive() {
+    return false
   }
 }
