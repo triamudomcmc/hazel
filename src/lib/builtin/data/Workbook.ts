@@ -14,6 +14,11 @@ export type CellStyle = (
   cell: Excel.Cell
 ) => void
 
+/**
+ * The **Workbook<T>()** class
+ * create a workbook instance, which contains multiple worksheets.
+ * @category Built-in
+ */
 export class Workbook<T extends DataType> {
   public readonly book: Worksheet<T>[]
   private workbook = new Excel.Workbook()
@@ -41,18 +46,30 @@ export class Workbook<T extends DataType> {
     }
   }
 
+  /**
+   * The **getSheet()** method returns the {@link Worksheet} from the provided page.
+   */
   public getSheet(page: number): Worksheet<T> | undefined {
     return this.book[page]
   }
 
+  /**
+   * The **addSheet()** method appends the provided sheet to the book.
+   */
   public addSheet(sheet: Worksheet<T>) {
     this.book.push(sheet)
   }
 
+  /**
+   * The **setGenerationPattern()** method sets the generation pattern of the book.
+   */
   public setGenerationPattern(pattern: GenerationPattern) {
     this.generateSheet = pattern
   }
 
+  /**
+   * The **applyStyle()** method applies cell style to the book.
+   */
   private applyStyle(s: Worksheet<T>, sheet: Excel.Worksheet, keys: boolean) {
     const rows = s.getRecords()
     if (keys && rows[0]) {
@@ -70,6 +87,10 @@ export class Workbook<T extends DataType> {
     })
   }
 
+  /**
+   * The **setStyle()** method sets the style registry for the worksheet.
+   * @param ce - Cell's style registry.
+   */
   public setStyle(ce: CellStyle) {
     this.cellStyle = ce
   }
@@ -101,6 +122,9 @@ export class Workbook<T extends DataType> {
     })
   }
 
+  /**
+   * The **save()** method saves the current book as an XLSX file.
+   */
   public async save(path: string) {
     if (this.workbook.worksheets.length === 0) {
       this.generateWorkbook()
@@ -108,6 +132,9 @@ export class Workbook<T extends DataType> {
     await this.workbook.xlsx.writeFile(path)
   }
 
+  /**
+   * The **saveAsCSV()** method saves the current book as a CSV file.
+   */
   public async saveAsCSV(path: string) {
     if (this.workbook.worksheets.length === 0) {
       this.generateWorkbook()

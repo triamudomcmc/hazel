@@ -3,6 +3,11 @@ import { DMap } from '@lib'
 
 type ExcelRowsRecord<T> = T[] | Record<string, string>[]
 
+/**
+ * The **Worksheet<T>()** class
+ * create a worksheet instance, which contains data.
+ * @category Built-in
+ */
 export class Worksheet<T extends DataType> {
   private rawData: Record<string, string>[]
   private data: T[] | null = null
@@ -12,6 +17,10 @@ export class Worksheet<T extends DataType> {
     this.rawData = data
   }
 
+  /**
+   * The **assignColumnName()** method assigns the name to sheet columns.
+   * @param column - Column name array.
+   */
   public assignColumnName(column: (keyof T)[]): Worksheet<T> {
     this.data = this.rawData
       .map((d) => {
@@ -34,6 +43,10 @@ export class Worksheet<T extends DataType> {
     return this.data || this.rawData
   }
 
+  /**
+   * The **setName()** method assigns sheet name.
+   * @param name - Sheet name.
+   */
   public setName(name: string): Worksheet<T> {
     this.name = name
     return this

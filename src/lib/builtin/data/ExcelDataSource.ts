@@ -4,6 +4,9 @@ import Excel from 'exceljs'
 import { DataSource } from '../../util/data/DataSource'
 import { Workbook } from './Workbook'
 
+/**
+ * @category Built-in
+ */
 export class ExcelDataSource<T extends DataType> extends DataSource {
   public async resolve(): Promise<Workbook<T>> {
     const workbook = new Excel.Workbook()
