@@ -5,7 +5,7 @@ import { DMap } from './DMap'
  */
 export class IDMap extends DMap<string, string> {
   /**
-   * The **swapKeyVal()** method swaps between object key and value.
+   * The **swapKeyVal()** method swaps between the object key and value.
    * @param obj - Object that will be swapped.
    * @private
    */

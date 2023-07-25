@@ -15,6 +15,7 @@ export interface IUserData {
   cardID?: string
   old_club?: SystemClubIDType
   position?: Record<SystemClubIDType, number>
+  section?: Record<SystemClubIDType, string>
   audition?: Record<SystemClubIDType, string>
   panelID?: SystemClubIDType[]
   tucmc?: boolean

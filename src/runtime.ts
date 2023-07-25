@@ -3,7 +3,7 @@ import { ClubRecord, DMap, FirestoreCollection, ID, Runtime } from '@lib'
 
 new Runtime('PROD').runSnippet(async (debug) => {
   /*
-  This example demonstrate the basic usages of lab resources.
+  This example demonstrates the basic usages of lab resources.
   By utilising Resource Control Class ex. Collection()
   and Data Controls ex. ClubRecord() and DMap()
    */
@@ -21,7 +21,7 @@ new Runtime('PROD').runSnippet(async (debug) => {
   const missing = ID.systemClubs.keyDiff(evalRecords.keys())
   debug.dump(missing)
 
-  // Merge all sub clubs to main club.
+  // Merge all sub clubs to main clubs.
   const mainClubRecords = evalRecords.transformToMainClubs()
 
   /*

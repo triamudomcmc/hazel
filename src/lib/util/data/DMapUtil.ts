@@ -17,9 +17,17 @@ export interface ChangeList {
   changes: DataChanges[]
 }
 
+/**
+ * The **DMapUtil()** class
+ * utility class for DMap based objects.
+ * @category Lib
+ */
 export class DMapUtil {
   private static debug = new Debugger('DMapUtil')
 
+  /**
+   * The **buildChanges()** method generates preview, changes summary and {@link ChangeList}.
+   */
   public static buildChanges(
     data:
       | DMap<string, ReferableMapEntity<any>>
@@ -49,6 +57,7 @@ export class DMapUtil {
           'changes from cached DMap are not accepted by the database changes handler by default.'
         )
       }
+
       changes = data
         .filter((_, v) => v.isEdited())
         .map((_, v): DataChanges => {

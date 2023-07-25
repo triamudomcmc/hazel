@@ -49,29 +49,49 @@ export abstract class Collection<T extends DataType, M = any, C = any> {
   protected abstract initInstance(collectionName: string): C
   /**
    * The **retrieveCollection()** abstract method will be called internally to fetch collection data.
-   * Note: Different databases require different procedure to access its collection.
-   * @param collectionName - This will be the same as `this.name`.
+   * Note: Different databases require different procedures to access its collection.
    * @protected
    * @override
    * @abstract
    */
   protected abstract retrieveCollection(): Promise<M>
 
+  /**
+   * The **handleChanges()** abstract method will be used to handle {@link DataChanges} to match the database required form.
+   * Note: Different databases require different procedures to process DataChanges.
+   * @param changes - Received changes.
+   * @protected
+   * @override
+   * @abstract
+   */
   protected abstract handleChanges(
     changes: DataChanges[]
   ): Promise<DataChanges[]>
 
+  /**
+   * The **verifyChanges()** abstract method will be used to verify changes pushed to the database.
+   * Note: Different databases may require different procedures.
+   * @param changes - Expected changes.
+   * @protected
+   * @override
+   * @abstract
+   */
   protected abstract verifyChanges(changes: DataChanges[]): Promise<boolean>
 
   /**
-   * The **setDefaultMutator()** method set Collection's defaultMutator, which will be used when resource are being fetched automatically.
-   * @param mutator - Mutators mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
+   * The **setDefaultMutator()** method set Collection's defaultMutator, which will be used when resources are being fetched automatically.
+   * @param mutator - Mutator mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
    */
   public setDefaultMutator(mutator: CollectionMutator<M>) {
     this.collectionMutator = mutator
     return this
   }
 
+  /**
+   * The **pushChanges()** method push incoming changes to the database.
+   * @param changes - Received changes.
+   * @param strict - Only allow LiveDMap changes to be pushed to the database.
+   */
   public async pushChanges(changes: ChangeList, strict = true) {
     if (!changes.isLive && strict) {
       throw Error(
@@ -82,6 +102,10 @@ export abstract class Collection<T extends DataType, M = any, C = any> {
     return await this.verifyChanges(await this.handleChanges(changes.changes))
   }
 
+  /**
+   * The **makeReferableEntities()** method converts fetched data to {@link ReferableMapEntity}.
+   * @param data - Fetched data
+   */
   private makeReferableEntities<G extends DataType>(
     data: DataType
   ): Record<string, ReferableMapEntity<G>> {
@@ -101,7 +125,7 @@ export abstract class Collection<T extends DataType, M = any, C = any> {
 
   /**
    * The **fetch()** method fetch the collection from database, mutate, and then save it as a cache.
-   * @param [mutator] - Mutators mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
+   * @param [mutator] - Mutator mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
    * @return Promise<T>
    */
   public async fetch(

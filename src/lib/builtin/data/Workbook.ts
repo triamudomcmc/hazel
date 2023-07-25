@@ -101,17 +101,17 @@ export class Workbook<T extends DataType> {
     })
   }
 
-  public save(path: string) {
+  public async save(path: string) {
     if (this.workbook.worksheets.length === 0) {
       this.generateWorkbook()
     }
-    this.workbook.xlsx.writeFile(path)
+    await this.workbook.xlsx.writeFile(path)
   }
 
-  public saveAsCSV(path: string) {
+  public async saveAsCSV(path: string) {
     if (this.workbook.worksheets.length === 0) {
       this.generateWorkbook()
     }
-    this.workbook.csv.writeFile(path)
+    await this.workbook.csv.writeFile(path)
   }
 }

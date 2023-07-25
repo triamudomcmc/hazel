@@ -2,7 +2,7 @@ import { ConsoleColour } from '../debugger/Colour'
 
 /**
  * The **DMap<K, V>()** class
- * encapsulates any object and provides utilities method.
+ * encapsulates any object and provides utility method.
  * @category Lib
  */
 export class DMap<K extends string, V> {
@@ -10,7 +10,7 @@ export class DMap<K extends string, V> {
 
   /**
    * The **DMap<K, V>()** class
-   * encapsulates any object and provides utilities method.
+   * encapsulates any object and provides utility method.
    */
   constructor(content: Record<K, V> | [K, V][] | Record<K, V>[]) {
     if (Array.isArray(content)) {
@@ -41,7 +41,7 @@ export class DMap<K extends string, V> {
   }
 
   /**
-   * The **keys()** method gives record's keys array.
+   * The **keys()** method gives record's key array.
    */
   public keys(): K[] {
     return <K[]>Object.keys(this.content)
@@ -131,7 +131,7 @@ export class DMap<K extends string, V> {
    */
   public groupBy<G extends string>(
     keyLocator: (v: V) => G
-  ): DMap<G, Record<K, V>[] | undefined> {
+  ): DMap<G, Record<K, V>[]> {
     const grouped: Record<G, Record<K, V>[]> = {} as Record<G, Record<K, V>[]>
     this.iterateSync((k, v, _, obj) => {
       const gKey = keyLocator(v)
@@ -208,6 +208,11 @@ export class DMap<K extends string, V> {
     return this.content[key]
   }
 
+  /**
+   * The **set()** method set **new** key to the map.
+   * @param key - Provided key.
+   * @param value - Provided value.
+   */
   public set(key: K, value: V): void {
     if (key in this.content) {
       throw Error(
@@ -219,12 +224,25 @@ export class DMap<K extends string, V> {
   }
 
   /**
+   * The **insert()** method insert new value to the map and assign temporary uuid.
+   * For the document-based database, an inserted key-value will be created after changes are pushed to the server.
+   * @param value - Provided value.
+   */
+  public insert(value: V): void {
+    const uuid = crypto.randomUUID()
+    this.set(`temp-${uuid}` as K, value)
+  }
+
+  /**
    * The **getRecord()** method gives the {@link Record} of the DMap.
    */
   public getRecord(): Record<K, V> {
     return this.content
   }
 
+  /**
+   * The **isLive()** method determines the state of the DMap.
+   */
   public isLive() {
     return false
   }

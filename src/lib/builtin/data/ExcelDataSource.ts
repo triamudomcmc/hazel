@@ -10,13 +10,12 @@ export class ExcelDataSource<T extends DataType> extends DataSource {
     const loadedWb = await workbook.xlsx.load(this.fileStream)
     const book: Record<string, string>[][] = []
 
-    loadedWb.eachSheet((ws, id) => {
+    loadedWb.eachSheet((ws, _) => {
       const sheet: Record<string, string>[] = []
       ws.eachRow((r) => {
         const row: Record<string, string> = {}
         r.eachCell((c, cn) => {
-          const k = cn
-          row[k] = c.text
+          row[cn] = c.text
         })
         sheet.push(row)
       })

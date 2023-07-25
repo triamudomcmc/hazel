@@ -22,7 +22,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">IDMap</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/IDMap.ts#L6">util/data/IDMap.ts:6</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/IDMap.ts#L6">util/data/IDMap.ts:6</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -46,6 +46,8 @@
 <a href="IDMap.html#groupBy" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>group<wbr/>By</span></a>
 <a href="IDMap.html#hasKey" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>has<wbr/>Key</span></a>
 <a href="IDMap.html#hasValue" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>has<wbr/>Value</span></a>
+<a href="IDMap.html#insert" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>insert</span></a>
+<a href="IDMap.html#isLive" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>is<wbr/>Live</span></a>
 <a href="IDMap.html#iterable" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>iterable</span></a>
 <a href="IDMap.html#iterate" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>iterate</span></a>
 <a href="IDMap.html#iterateSync" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>iterate<wbr/>Sync</span></a>
@@ -54,6 +56,7 @@
 <a href="IDMap.html#keys" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>keys</span></a>
 <a href="IDMap.html#map" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>map</span></a>
 <a href="IDMap.html#reverse" class="tsd-index-link tsd-kind-method tsd-parent-kind-class"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>reverse</span></a>
+<a href="IDMap.html#set" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>set</span></a>
 <a href="IDMap.html#size" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>size</span></a>
 <a href="IDMap.html#sort" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>sort</span></a>
 <a href="IDMap.html#values" class="tsd-index-link tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg><span>values</span></a>
@@ -67,7 +70,7 @@
 <li class="tsd-signature tsd-anchor-link" id="constructor.new_IDMap">new IDMap<span class="tsd-signature-symbol">(</span>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="IDMap.html" class="tsd-signature-type" data-tsd-kind="Class">IDMap</a><a href="#constructor.new_IDMap" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>The <strong>DMap&lt;K, V&gt;()</strong> class
-encapsulates any object and provides utilities method.</p>
+encapsulates any object and provides utility method.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -77,7 +80,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <a href="IDMap.html" class="tsd-signature-type" data-tsd-kind="Class">IDMap</a></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#constructor">constructor</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L13">util/data/DMap.ts:13</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L15">util/data/DMap.ts:15</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected tsd-is-inherited"><a id="content" class="tsd-anchor"></a>
@@ -85,7 +88,7 @@ encapsulates any object and provides utilities method.</p>
 <div class="tsd-signature">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#content">content</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L7">util/data/DMap.ts:7</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L9">util/data/DMap.ts:9</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="filter" class="tsd-anchor"></a>
@@ -118,7 +121,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <a href="DMap.html" class="tsd-signature-type" data-tsd-kind="Class">DMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#filter">filter</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L122">util/data/DMap.ts:122</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L124">util/data/DMap.ts:124</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="findKeys" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>find<wbr/>Keys</span><a href="#findKeys" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -147,7 +150,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#findKeys">findKeys</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L149">util/data/DMap.ts:149</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L151">util/data/DMap.ts:151</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="findValues" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>find<wbr/>Values</span><a href="#findValues" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -176,7 +179,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#findValues">findValues</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L161">util/data/DMap.ts:161</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L163">util/data/DMap.ts:163</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="get" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get</span><a href="#get" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -194,7 +197,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#get">get</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L205">util/data/DMap.ts:205</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L207">util/data/DMap.ts:207</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="getRecord" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Record</span><a href="#getRecord" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -205,11 +208,11 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#getRecord">getRecord</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L212">util/data/DMap.ts:212</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L239">util/data/DMap.ts:239</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="groupBy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>group<wbr/>By</span><a href="#groupBy" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-<li class="tsd-signature tsd-anchor-link" id="groupBy.groupBy-1">group<wbr/>By<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>keyLocator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DMap.html" class="tsd-signature-type" data-tsd-kind="Class">DMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#groupBy.groupBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="groupBy.groupBy-1">group<wbr/>By<span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span>keyLocator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="DMap.html" class="tsd-signature-type" data-tsd-kind="Class">DMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><a href="#groupBy.groupBy-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-comment tsd-typography"><p>The <strong>groupBy()</strong> method groups records by located values using keyLocator.</p>
 </div>
@@ -236,10 +239,10 @@ encapsulates any object and provides utilities method.</p>
 <li>
 <h5>v: <span class="tsd-signature-type">string</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span></h4></li></ul></li></ul></li></ul></div>
-<h4 class="tsd-returns-title">Returns <a href="DMap.html" class="tsd-signature-type" data-tsd-kind="Class">DMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h4 class="tsd-returns-title">Returns <a href="DMap.html" class="tsd-signature-type" data-tsd-kind="Class">DMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type" data-tsd-kind="Type parameter">G</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#groupBy">groupBy</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L130">util/data/DMap.ts:130</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L132">util/data/DMap.ts:132</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="hasKey" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>has<wbr/>Key</span><a href="#hasKey" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -257,7 +260,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#hasKey">hasKey</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L114">util/data/DMap.ts:114</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L116">util/data/DMap.ts:116</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="hasValue" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>has<wbr/>Value</span><a href="#hasValue" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -275,7 +278,37 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#hasValue">hasValue</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L173">util/data/DMap.ts:173</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L175">util/data/DMap.ts:175</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="insert" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>insert</span><a href="#insert" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="insert.insert-1">insert<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#insert.insert-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>The <strong>insert()</strong> method insert new value to the map and assign temporary uuid.
+For the document-based database, an inserted key-value will be created after changes are pushed to the server.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>value: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>Provided value.</p>
+</div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#insert">insert</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L231">util/data/DMap.ts:231</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="isLive" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>is<wbr/>Live</span><a href="#isLive" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="isLive.isLive-1">is<wbr/>Live<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#isLive.isLive-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>The <strong>isLive()</strong> method determines the state of the DMap.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
+<p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#isLive">isLive</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L246">util/data/DMap.ts:246</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="iterable" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>iterable</span><a href="#iterable" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -286,7 +319,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#iterable">iterable</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L58">util/data/DMap.ts:58</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L60">util/data/DMap.ts:60</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="iterate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>iterate</span><a href="#iterate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -321,7 +354,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#iterate">iterate</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L98">util/data/DMap.ts:98</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L100">util/data/DMap.ts:100</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="iterateSync" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>iterate<wbr/>Sync</span><a href="#iterateSync" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -356,7 +389,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#iterateSync">iterateSync</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L86">util/data/DMap.ts:86</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L88">util/data/DMap.ts:88</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="keyDiff" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>key<wbr/>Diff</span><a href="#keyDiff" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -374,7 +407,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#keyDiff">keyDiff</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L193">util/data/DMap.ts:193</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L195">util/data/DMap.ts:195</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="keyMatch" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>key<wbr/>Match</span><a href="#keyMatch" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -392,18 +425,18 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#keyMatch">keyMatch</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L181">util/data/DMap.ts:181</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L183">util/data/DMap.ts:183</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="keys" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>keys</span><a href="#keys" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 <li class="tsd-signature tsd-anchor-link" id="keys.keys-1">keys<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><a href="#keys.keys-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>The <strong>keys()</strong> method gives record&#39;s keys array.</p>
+<div class="tsd-comment tsd-typography"><p>The <strong>keys()</strong> method gives record&#39;s key array.</p>
 </div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#keys">keys</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L44">util/data/DMap.ts:44</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L46">util/data/DMap.ts:46</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="map" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>map</span><a href="#map" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -443,7 +476,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type" data-tsd-kind="Type parameter">R</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#map">map</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L66">util/data/DMap.ts:66</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L68">util/data/DMap.ts:68</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="reverse" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>reverse</span><a href="#reverse" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -453,7 +486,29 @@ encapsulates any object and provides utilities method.</p>
 </div>
 <h4 class="tsd-returns-title">Returns <a href="IDMap.html" class="tsd-signature-type" data-tsd-kind="Class">IDMap</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/IDMap.ts#L19">util/data/IDMap.ts:19</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/IDMap.ts#L19">util/data/IDMap.ts:19</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="set" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>set</span><a href="#set" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+<li class="tsd-signature tsd-anchor-link" id="set.set-1">set<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#set.set-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>The <strong>set()</strong> method set <strong>new</strong> key to the map.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5>key: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>Provided key.</p>
+</div></li>
+<li>
+<h5>value: <span class="tsd-signature-type">string</span></h5>
+<div class="tsd-comment tsd-typography"><p>Provided value.</p>
+</div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#set">set</a></p>
+<ul>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L216">util/data/DMap.ts:216</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="size" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>size</span><a href="#size" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -464,7 +519,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#size">size</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L37">util/data/DMap.ts:37</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L39">util/data/DMap.ts:39</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="sort" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>sort</span><a href="#sort" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -495,7 +550,7 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <a href="DMap.html" class="tsd-signature-type" data-tsd-kind="Class">DMap</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#sort">sort</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L78">util/data/DMap.ts:78</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L80">util/data/DMap.ts:80</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a id="values" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>values</span><a href="#values" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -506,13 +561,13 @@ encapsulates any object and provides utilities method.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
 <p>Inherited from <a href="DMap.html">DMap</a>.<a href="DMap.html#values">values</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/DMap.ts#L51">util/data/DMap.ts:51</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/DMap.ts#L53">util/data/DMap.ts:53</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private"><a id="swapKeyVal" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <code class="tsd-tag ts-flagPrivate">Private</code> <span>swap<wbr/>Key<wbr/>Val</span><a href="#swapKeyVal" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
 <li class="tsd-signature tsd-anchor-link" id="swapKeyVal.swapKeyVal-1">swap<wbr/>Key<wbr/>Val<span class="tsd-signature-symbol">(</span>obj<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><a href="#swapKeyVal.swapKeyVal-1" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></li>
 <li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>The <strong>swapKeyVal()</strong> method swaps between object key and value.</p>
+<div class="tsd-comment tsd-typography"><p>The <strong>swapKeyVal()</strong> method swaps between the object key and value.</p>
 </div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -523,7 +578,7 @@ encapsulates any object and provides utilities method.</p>
 </div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/180790c/src/lib/util/data/IDMap.ts#L12">util/data/IDMap.ts:12</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/triamudomcmc/hazel/blob/0f1eaf5/src/lib/util/data/IDMap.ts#L12">util/data/IDMap.ts:12</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -559,6 +614,8 @@ encapsulates any object and provides utilities method.</p>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#groupBy" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>group<wbr/>By</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#hasKey" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>has<wbr/>Key</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#hasValue" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>has<wbr/>Value</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#insert" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>insert</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#isLive" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>is<wbr/>Live</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#iterable" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>iterable</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#iterate" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>iterate</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#iterateSync" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>iterate<wbr/>Sync</a></li>
@@ -567,6 +624,7 @@ encapsulates any object and provides utilities method.</p>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#keys" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>keys</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#map" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>map</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class"><a href="IDMap.html#reverse" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>reverse</a></li>
+<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#set" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>set</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#size" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>size</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#sort" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>sort</a></li>
 <li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="IDMap.html#values" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-2048-path"></use><use href="#icon-2048-text"></use></svg>values</a></li>

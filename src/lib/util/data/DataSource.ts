@@ -1,5 +1,9 @@
 import * as fs from 'fs'
 
+/**
+ * DataSource
+ * @group Abstracts
+ */
 export abstract class DataSource {
   protected fileStream: Buffer
 

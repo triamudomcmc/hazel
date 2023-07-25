@@ -9,7 +9,7 @@ import QuerySnapshot = firestore.QuerySnapshot
  */
 export class Mutators {
   /**
-   * The **SpecificKeyFieldKVMutator()** method produce {@link CollectionMutator} that mutates collection array to key-value object.
+   * The **SpecificKeyFieldKVMutator()** method produce {@link CollectionMutator} that mutates collection array to the key-value object.
    * @param keyLocator - Key locator function finds the value that will be object key.
    * @return CollectionMutator
    * @constructor

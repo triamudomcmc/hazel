@@ -31,52 +31,71 @@ export class FirestoreCollection<T extends DataType> extends Collection<
     return this.dbInstance.get()
   }
 
+  private chunkArray(arr: DataChanges[], size: number) {
+    const myArray = []
+    for (let i = 0; i < arr.length; i += size) {
+      myArray.push(arr.slice(i, i + size))
+    }
+    return myArray
+  }
+
   protected async handleChanges(
     changes: DataChanges[]
   ): Promise<DataChanges[]> {
-    const batch = this.dbInstance.firestore.batch()
+    const changesChunk = this.chunkArray(changes, 500)
 
-    changes.forEach((v) => {
-      let target
-      if (!v._docID) {
-        target = this.dbInstance.doc()
-        v._docID = target.id
-      } else {
-        target = this.dbInstance.doc(v._docID)
-      }
+    let i = 0
+    for (const ca of changesChunk) {
+      const batch = this.dbInstance.firestore.batch()
 
-      switch (v.type) {
-        case 'create':
-          batch.create(target, v.to)
-          break
-        case 'delete':
-          batch.delete(target)
-          break
-        case 'update': {
-          const parsedTo: DataType = {}
-          Object.keys(v.to).forEach((k) => {
-            const d = v.to[k]
-
-            if (d instanceof FieldDelete) {
-              parsedTo[k] = d.resolve('firestore')
-              return
-            }
-
-            parsedTo[k] = d
-          })
-
-          batch.update(target, parsedTo)
+      ca.forEach((v) => {
+        let target
+        if (!v._docID) {
+          target = this.dbInstance.doc()
+          v._docID = target.id
+        } else {
+          target = this.dbInstance.doc(v._docID)
         }
+
+        switch (v.type) {
+          case 'create':
+            batch.create(target, v.to)
+            break
+          case 'delete':
+            batch.delete(target)
+            break
+          case 'update': {
+            const parsedTo: DataType = {}
+            Object.keys(v.to).forEach((k) => {
+              const d = v.to[k]
+
+              if (d instanceof FieldDelete) {
+                parsedTo[k] = d.resolve('firestore')
+                return
+              }
+
+              parsedTo[k] = d
+            })
+
+            batch.update(target, parsedTo)
+          }
+        }
+      })
+
+      const c = this.debug.loadingInfo(
+        `pushing changes to the database (chunk ${i + 1} of ${
+          changesChunk.length
+        })`
+      )
+
+      try {
+        await batch.commit()
+        c.succeed()
+      } catch (e) {
+        c.fail()
+        return changes
       }
-    })
-
-    const c = this.debug.loadingInfo('pushing changes to the database')
-
-    try {
-      await batch.commit()
-      c.succeed()
-    } catch (e) {
-      c.fail()
+      i += 1
     }
 
     return changes

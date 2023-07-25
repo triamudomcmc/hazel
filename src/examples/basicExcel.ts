@@ -6,7 +6,7 @@ import { Worksheet } from '../lib/builtin/data/Worksheet'
 
 export const basicExcel = async (debug: Debugger) => {
   /*
-  This example demonstrate the basic usages of lab resources.
+  This example demonstrates the basic usages of lab resources.
   By utilising Resource Control Class ex. Collection()
   and Data Controls ex. ClubRecord() and DMap()
    */

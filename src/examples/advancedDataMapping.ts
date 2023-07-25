@@ -4,7 +4,7 @@ import { ClubRecord, DMap, FirestoreCollection } from '@lib'
 export const advancedDataMappingSnippet = async (debug: Debugger) => {
   /*
  This example demonstrates some advance usages of DMap map() method.
- By constructing each evaluation state count for every club.
+ By constructing each evaluation's state count for every club.
   */
 
   // Initialise and read collection
