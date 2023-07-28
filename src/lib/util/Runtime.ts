@@ -24,6 +24,12 @@ export class Runtime {
       fs.mkdirSync(`resource/collection/${this.MODE}`, { recursive: true })
     }
 
+    const simDir = fs.existsSync('resource/collection/simulated')
+    if (!simDir) {
+      this.debug.info('created simulated folder for simulated collections.')
+      fs.mkdirSync('resource/collection/simulated', { recursive: true })
+    }
+
     const revDir = fs.existsSync(`review/${this.MODE}`)
     if (!revDir) {
       this.debug.info('created review folder for data collections.')
