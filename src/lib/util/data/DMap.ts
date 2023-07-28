@@ -1,5 +1,3 @@
-import { ConsoleColour } from '../debugger/Colour'
-
 /**
  * The **DMap<K, V>()** class
  * encapsulates any object and provides utility method.
@@ -214,11 +212,11 @@ export class DMap<K extends string, V> {
    * @param value - Provided value.
    */
   public set(key: K, value: V): void {
-    if (key in this.content) {
-      throw Error(
-        `${ConsoleColour.BGRED}${ConsoleColour.BOLD}DMap.set() must be used to set new key to the map.${ConsoleColour.RESET}`
-      )
-    }
+    // if (key in this.content) {
+    //   throw Error(
+    //     `${ConsoleColour.BGRED}${ConsoleColour.BOLD}DMap.set() must be used to set new key to the map.${ConsoleColour.RESET}`
+    //   )
+    // }
     this.content[key] = value
     return
   }
@@ -245,5 +243,11 @@ export class DMap<K extends string, V> {
    */
   public isLive() {
     return false
+  }
+
+  public remove(key: K) {
+    const del = this.content[key]
+    delete this.content[key]
+    return del
   }
 }

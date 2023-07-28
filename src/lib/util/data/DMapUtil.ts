@@ -1,7 +1,7 @@
-import type { DMap } from '@lib'
-import { Debugger } from '@lib'
 import fs from 'fs'
 
+import type { DMap } from '../data/DMap'
+import { Debugger } from '../debugger/Debugger'
 import type { LiveDMap } from './LiveDMap'
 import type { ReferableMapEntity } from './ReferableEntity'
 

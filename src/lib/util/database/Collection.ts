@@ -22,7 +22,7 @@ export type CollectionMutator<T> = (d: T) => DataType
  * @group Abstracts
  */
 export abstract class Collection<T extends DataType, M = any, C = any> {
-  private readonly name: string
+  protected readonly name: string
 
   protected debug = new Debugger(this.constructor.name || 'Collection')
 

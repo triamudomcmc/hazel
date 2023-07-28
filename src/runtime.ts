@@ -1,36 +1,34 @@
-import type { EvaluateCollectionType } from '@lib'
-import { ClubRecord, DMap, FirestoreCollection, ID, Runtime } from '@lib'
+import { IDUtil, Runtime } from '@lib'
 
-new Runtime('PROD').runSnippet(async (debug) => {
+import { SimulatedCollection } from './lib/builtin/data/SimulatedCollection'
+import { SimulatedDataPresets } from './lib/builtin/data/SimulatedDataPresets'
+
+new Runtime('DEV').runSnippet(async (debug) => {
   /*
-  This example demonstrates the basic usages of lab resources.
-  By utilising Resource Control Class ex. Collection()
-  and Data Controls ex. ClubRecord() and DMap()
+  This example demonstrates the usage of Simulated Collection.
+  By accessing users' data and perform a basic query.
    */
 
-  // Initialise data collection
-  const evalColl = new FirestoreCollection<EvaluateCollectionType>('evaluate')
+  // Initialise user data collection.
+  const users = new SimulatedCollection(
+    'data',
+    SimulatedDataPresets.RandomStudents()
+  )
 
-  // Load data from the local cache and fetch if there was no cache.
-  const evalData = await evalColl.readFromCache(true)
-  if (!evalData) return
+  // Fetch data
+  const userData = await users.fetch()
+  if (!userData) return
 
-  const evalRecords = new ClubRecord(evalData.getRecord())
+  // Find every student that their room property is 59.
+  const students = userData.findValues((v) => v.get('room') === '59')
 
-  // Compare keys with systemClubs using keyDiff() method.
-  const missing = ID.systemClubs.keyDiff(evalRecords.keys())
-  debug.dump(missing)
-
-  // Merge all sub clubs to main clubs.
-  const mainClubRecords = evalRecords.transformToMainClubs()
-
-  /*
-  Accessing a key using get() method
-  Note: get() method arg should be suggested by the editor (In this case is clubID).
-   */
-  const clubEvalData = mainClubRecords.get('ก30927')
-  if (!clubEvalData) return
-
-  // Encapsulate the record with DMap and access its utility methods.
-  debug.dump(new DMap(clubEvalData).size())
+  // Display data array
+  debug.table(
+    students.map((u) => ({
+      number: u.get('number'),
+      student_id: u.get('student_id'),
+      club: u.get('club'),
+      clubName: IDUtil.translateToClubName(u.get('club'))
+    }))
+  )
 })
