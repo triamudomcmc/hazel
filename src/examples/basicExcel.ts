@@ -16,7 +16,9 @@ export const basicExcel = async (debug: Debugger) => {
 
   // Load data from the local cache and fetch if there was no cache.
   const evalData = await evalColl.readFromCache(true)
-  if (!evalData) return
+  if (!evalData) {
+    return
+  }
 
   const evalRecords = new ClubRecord(evalData.getRecord())
 
