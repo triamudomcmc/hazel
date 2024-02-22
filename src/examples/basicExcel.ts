@@ -13,6 +13,11 @@ export const basicExcel = async (debug: Debugger) => {
 
   // Initialise data collection
   const evalColl = new FirestoreCollection<EvaluateCollectionType>('evaluate')
+  const users = new FirestoreCollection<UserDataCollectionType>(
+    'data'
+  ).setDefaultMutator(
+    Mutators.SpecificKeyFieldKVMutator((doc) => doc.get('student_id'))
+  )
 
   // Load data from the local cache and fetch if there was no cache.
   const evalData = await evalColl.readFromCache(true)
