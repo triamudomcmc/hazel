@@ -8,3 +8,6 @@ yarn.lock
 /resource/
 /review/
 /out/
+
+clublists.xlsx
+evals.xlsx
