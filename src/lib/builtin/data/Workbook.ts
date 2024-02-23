@@ -36,7 +36,7 @@ export class Workbook<T extends DataType> {
       return
     }
 
-    if (param[0] instanceof Worksheet<T>) {
+    if (param[0] instanceof Worksheet) {
       this.book = param as Worksheet<T>[]
     } else {
       this.book = param.map((rs) => {

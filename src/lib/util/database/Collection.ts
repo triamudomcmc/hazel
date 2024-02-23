@@ -164,4 +164,46 @@ export abstract class Collection<T extends DataType, M = any, C = any> {
 
     return new DMap(this.makeReferableEntities(data.content))
   }
+
+  /**
+   * The **readFromCacheNoRef()** method retrieve data from saved cache without referable property.
+   * @param autoFetch - Automatically fetch data from the database if it is not presented.
+   */
+  public async readFromCacheNoRef(
+    autoFetch = false
+  ): Promise<DMap<string, T[keyof T]> | null> {
+    this.debug.info(`reading collection ${this.name} from cache.`)
+    const data = Files.readFile<T>(this.resourcePath)
+    if (!data) {
+      this.debug.warn(
+        `cached collection ${this.name} is not presented. autoFetch: ${
+          autoFetch ? 'true' : 'false'
+        }`
+      )
+      if (!autoFetch) return null
+      return this.fetchNoRef()
+    }
+
+    return new DMap(data.content)
+  }
+
+  /**
+   * The **fetchNoRef()** method fetch the collection from database without referable property, mutate, and then save it as a cache.
+   * @param [mutator] - Mutator mutates raw collection data from the database to certain format check {@link Mutator} for some built-in mutators.
+   * @return Promise<T>
+   */
+  public async fetchNoRef(
+    mutator: CollectionMutator<M> = this.collectionMutator
+  ): Promise<LiveDMap<string, T[keyof T]>> {
+    const loader = this.debug.loadingInfo(
+      `fetching collection ${this.name} from database.`
+    )
+    const data = await this.retrieveCollection()
+    loader.succeed()
+    const mutated = mutator(data)
+
+    Files.writeFile(mutator(data), this.resourcePath)
+
+    return new LiveDMap(mutated)
+  }
 }

@@ -16,7 +16,7 @@ export const docGenSnippet = async (debug: Debugger) => {
   const eCollection = new FirestoreCollection<EvaluateCollectionType>(
     'evaluate'
   )
-  const eData = await eCollection.readFromCache(true)
+  const eData = await eCollection.readFromCacheNoRef(true)
   if (!eData) return
 
   const uData = await new FirestoreCollection<UserDataCollectionType>('data')
@@ -31,7 +31,8 @@ export const docGenSnippet = async (debug: Debugger) => {
 
   await eMap.iterate(async (key, value) => {
     debug.info(`working on ${key}`)
-    const clubEMap = new DMap(value.data())
+
+    const clubEMap = new DMap(value)
 
     const grouped = clubEMap.groupBy((v) => v.action)
 
@@ -39,7 +40,7 @@ export const docGenSnippet = async (debug: Debugger) => {
       key,
       {
         semester: '2',
-        year: '2565'
+        year: '2566'
       },
       {
         all: clubEMap,

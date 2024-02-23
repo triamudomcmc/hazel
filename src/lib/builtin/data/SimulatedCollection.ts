@@ -94,7 +94,10 @@ export class SimulatedCollection<T extends DataType> extends Collection<
     this.debug.info(
       `${ConsoleColour.BGYELLOW}pushing changes to the database...`
     )
-    Files.writeFile(object.getRecord(), `resource/simulated/${this.name}`)
+    Files.writeFile(
+      object.getRecord(),
+      `resource/collection/simulated/${this.name}`
+    )
 
     return changes
   }
@@ -185,13 +188,13 @@ export class SimulatedCollection<T extends DataType> extends Collection<
   }
 
   private loadBuildCache() {
-    return Files.readFile(`resource/simulated/${this.name}`)
+    return Files.readFile(`resource/collection/simulated/${this.name}`)
   }
 
   private saveBuildCache() {
     Files.writeFile(
       this.simulatedContent.getRecord(),
-      `resource/simulated/${this.name}`
+      `resource/collection/simulated/${this.name}`
     )
   }
 

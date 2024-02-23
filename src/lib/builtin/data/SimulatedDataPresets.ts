@@ -1,3 +1,5 @@
+import * as crypto from 'crypto'
+
 import type { DataType } from '../../util/data/DataType'
 import { DMap } from '../../util/data/DMap'
 import type { IUserData, UserDataCollectionType } from '../types/UserData'
