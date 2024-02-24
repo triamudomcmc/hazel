@@ -23,7 +23,7 @@ export abstract class ID {
     'ก30905-2_1': 'ภาษาอังกฤษ (English Drama) ฝ่าย Actor',
     'ก30905-2_2': 'ภาษาอังกฤษ (English Drama) ฝ่าย Stage Crew',
     'ก30905-2_6': 'ภาษาอังกฤษ (English Drama) ฝ่าย PR Staff',
-    'ก30905-2_7': 'ภาษาอังกฤษ (English Drama) ฝ่าย Editor',
+    'ก30905-2_7': 'ภาษาอังกฤษ (English Drama) ฝ่าย Editor and Music Composer',
     'ก30905-2_9': 'ภาษาอังกฤษ (English Drama) ฝ่าย Costume and Makeup',
     'ก30905-3': 'ภาษาอังกฤษ (Debate)',
     'ก30905-4': 'ภาษาอังกฤษ (Crossword)',
