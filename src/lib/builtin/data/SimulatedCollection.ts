@@ -21,7 +21,7 @@ import type { SimulatedDataPreset } from './SimulatedDataPresets'
  */
 export class SimulatedCollection<T extends DataType> extends Collection<
   T,
-  null,
+  DMap<string, T[keyof T]>,
   null
 > {
   private readonly simulatedContent: DMap<string, T[keyof T]>
@@ -106,11 +106,12 @@ export class SimulatedCollection<T extends DataType> extends Collection<
     return null
   }
 
-  protected retrieveCollection(): Promise<null> {
-    return Promise.resolve(null)
+  protected retrieveCollection(): Promise<DMap<string, T[keyof T]>> {
+    return Promise.resolve(new DMap({}))
   }
 
-  protected collectionMutator = (d: any) => d as DataType
+  protected collectionMutator = (d: DMap<string, T[keyof T]>) =>
+    d.getRecord() as DataType
 
   protected async verifyChanges(changes: DataChanges[]): Promise<boolean> {
     const data = this.loadBuildCache()
@@ -199,15 +200,21 @@ export class SimulatedCollection<T extends DataType> extends Collection<
   }
 
   private buildRef(): LiveDMap<string, ReferableMapEntity<T[keyof T]>> {
-    const refMap = this.simulatedContent
+    const mutated = this.collectionMutator(this.simulatedContent)
+    const refMap = new DMap(mutated)
+
     const nMap: LiveDMap<string, ReferableMapEntity<T[keyof T]>> = new LiveDMap<
       string,
       any
     >({})
 
     refMap.iterateSync((k, v) => {
-      const id = k
-      nMap.set(id, new ReferableMapEntity<T[keyof T]>(v, id))
+      let id = k
+      if (v._docID) {
+        id = v._docID
+      }
+
+      nMap.set(k, new ReferableMapEntity<T[keyof T]>(v, id))
     })
 
     return nMap
@@ -227,5 +234,16 @@ export class SimulatedCollection<T extends DataType> extends Collection<
 
     loader.succeed()
     return this.buildRef()
+  }
+
+  async fetchNoRef(): Promise<DMap<string, T[keyof T]>> {
+    const loader = this.debug.loadingInfo('fetching collection from database.')
+
+    loader.succeed()
+
+    const mutated = this.collectionMutator(this.simulatedContent)
+
+    console.log(Object.keys(mutated))
+    return new DMap(this.clearEntityReference(mutated))
   }
 }

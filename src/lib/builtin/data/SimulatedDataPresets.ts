@@ -2,6 +2,13 @@ import * as crypto from 'crypto'
 
 import type { DataType } from '../../util/data/DataType'
 import { DMap } from '../../util/data/DMap'
+import type { ReferableMapEntity } from '../../util/data/ReferableEntity'
+import type { SystemClubIDType } from '../types/ClubID'
+import type {
+  EvaluateCollectionType,
+  EvaluateType,
+  IEvaluateResult
+} from '../types/Evaluate'
 import type { IUserData, UserDataCollectionType } from '../types/UserData'
 import { ID } from './ID/ID'
 
@@ -13,6 +20,17 @@ export type SimulatedDataPreset<T extends DataType> = T
 export class SimulatedDataPresets {
   private static randomNoise() {
     return (+new Date() * Math.random()).toString(36).substring(0, 6)
+  }
+
+  private static randomStatus(): IEvaluateResult {
+    const foo = Math.random() * 100
+    if (foo < 80) {
+      return { action: 'passed' }
+    } else if (foo < 92) {
+      return { action: 'break' }
+    } else {
+      return { action: 'failed' }
+    }
   }
 
   private static readonly rooms = [
@@ -56,6 +74,26 @@ export class SimulatedDataPresets {
         ] as string
       })
     }
+    return data.getRecord()
+  }
+
+  public static RandomEvaluation(
+    studentDataCollection: DMap<string, ReferableMapEntity<IUserData>>
+  ): SimulatedDataPreset<EvaluateCollectionType> {
+    const data = new DMap<SystemClubIDType, EvaluateType>({})
+    const grouped = studentDataCollection.groupBy((v) => v.get('club'))
+
+    grouped.iterateSync((key, value, index, obj) => {
+      const a = new DMap<string, IEvaluateResult>({})
+      value.map((v) => {
+        const id = Object.values(v)[0]?.get('student_id')
+        if (!id) return
+        a.set(id, this.randomStatus())
+      })
+
+      data.set(key, a.getRecord())
+    })
+
     return data.getRecord()
   }
 }
