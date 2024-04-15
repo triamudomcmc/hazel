@@ -1,0 +1,8 @@
+/.husky/
+.idea/
+/out/
+yarn-error.log
+.env
+
+/resource/
+/review/

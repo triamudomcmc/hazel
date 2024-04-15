@@ -214,7 +214,10 @@ export class SimulatedCollection<T extends DataType> extends Collection<
         id = v._docID
       }
 
-      nMap.set(k, new ReferableMapEntity<T[keyof T]>(v, id))
+      const entity = new ReferableMapEntity<T[keyof T]>(v, id)
+      entity.setSynthesized(false)
+
+      nMap.set(k, entity)
     })
 
     return nMap

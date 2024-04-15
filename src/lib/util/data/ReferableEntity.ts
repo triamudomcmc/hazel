@@ -1,5 +1,4 @@
-import type { DataType } from '@lib'
-
+import type { DataType } from './DataType'
 import { FieldDelete } from './FieldDelete'
 
 /**
@@ -8,6 +7,11 @@ import { FieldDelete } from './FieldDelete'
  * @category Lib
  */
 export class ReferableMapEntity<T extends DataType> {
+  /**
+   * The **synthesized** property determines whether the object is newly created in script or retrieved from the existing source.<br/><br/>
+   *       (in-script created ReferableMapEntity will always be marked as synthesized and will be created when push to the database)
+   */
+  public synthesized: boolean
   public document: string | undefined
   private content: T
   public saved: Partial<T> = {}
@@ -15,6 +19,9 @@ export class ReferableMapEntity<T extends DataType> {
   private alive = true
 
   constructor(content: T, document?: string) {
+    /* Every object that created by constructor (in-code creation will
+    be classified as synthesized object) which will trigger the creation process later on*/
+    this.synthesized = true
     this.content = content
     this.document = document
   }
@@ -24,7 +31,10 @@ export class ReferableMapEntity<T extends DataType> {
    */
   public isEdited(): boolean {
     return (
-      Object.keys(this.changes).length > 0 || this.isDeleted() || !this.document
+      Object.keys(this.changes).length > 0 ||
+      this.isDeleted() ||
+      !this.document ||
+      this.synthesized
     )
   }
 
@@ -102,5 +112,13 @@ export class ReferableMapEntity<T extends DataType> {
    */
   public getOriginal(): T {
     return { ...this.content, ...this.saved }
+  }
+
+  /**
+   * The **setSynthesized()** method sets the synthesized property.
+   * @param syn - value
+   */
+  public setSynthesized(syn: boolean): void {
+    this.synthesized = syn
   }
 }

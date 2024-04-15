@@ -1,62 +1,53 @@
-import {
-  ClubRecord,
-  DMap,
-  DocumentTemplate,
-  EvaluationDocument,
-  Mutators,
-  Runtime
-} from '@lib'
+import type { SystemClubIDType } from 'lib'
+import { ReferableMapEntity } from 'lib'
+import { FirestoreCollection, Runtime } from 'lib'
+import { DMapUtil } from 'lib'
 
-import { SimulatedCollection } from './lib/builtin/data/SimulatedCollection'
-import { SimulatedDataPresets } from './lib/builtin/data/SimulatedDataPresets'
-
-new Runtime('DEV').runSnippet(async (debug) => {
-  /*
-  This example demonstrates the usage of Simulated Collection.
-  By accessing users' data and perform a basic query.
-   */
-
-  // Initialise user data collection.
-  const users = new SimulatedCollection(
-    'data',
-    SimulatedDataPresets.RandomStudents()
-  ).setDefaultMutator(Mutators.SimulatedUserMutator())
-
-  // Fetch data
-  const userData = await users.fetch()
-  if (!userData) return
-
-  const evald = new SimulatedCollection(
-    'eval',
-    SimulatedDataPresets.RandomEvaluation(userData)
+new Runtime('PROD').runSnippet(async (debug) => {
+  type Contact = {
+    context: string
+    type: string
+  }
+  type ClubDisplayCollection = Record<
+    SystemClubIDType,
+    {
+      audition: boolean
+      contact: Contact
+      contact2: Contact
+      contact3: Contact
+      count: number
+      description: string
+      images: {
+        mainImage: string
+        'picture-1': string
+        'picture-2': string
+        'picture-3': string
+      }
+      nameEN: string
+      nameTH: string
+      reviews: {
+        contact: string
+        context: string
+        name: string
+        profile: string
+        year: string
+      }[]
+    }
+  >
+  const cd = new FirestoreCollection<ClubDisplayCollection>(
+    'clubDisplayPending'
   )
+  const cdata = await cd.readFromCache()
 
-  const evaldata = await evald.fetchNoRef()
-  if (!evaldata) return
+  if (!cdata) return
 
-  const eMap = new ClubRecord(evaldata.getRecord()).transformToMainClubs()
-  const template = new DocumentTemplate('assets/eTemplate.html')
+  const d = cdata.get('ก30927')
 
-  await eMap.iterate(async (key, value) => {
-    debug.info(`working on ${key}`)
+  if (!d) return
+  d.update('nameEN', 'test')
+  const newEntity = new ReferableMapEntity(d.data(), 'ก30953-1')
 
-    const clubEMap = new DMap(value)
+  cdata.set('ก30953-1', newEntity)
 
-    const grouped = clubEMap.groupBy((v) => v.action)
-
-    const doc = new EvaluationDocument(
-      key,
-      {
-        semester: '2',
-        year: '2566'
-      },
-      {
-        all: clubEMap,
-        ...grouped.getRecord()
-      },
-      userData
-    )
-
-    await doc.generate(template, `${key}`)
-  })
+  const chages = DMapUtil.buildChanges(cdata)
 })

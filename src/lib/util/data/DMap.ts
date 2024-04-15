@@ -1,3 +1,5 @@
+import * as crypto from 'crypto'
+
 /**
  * The **DMap<K, V>()** class
  * encapsulates any object and provides utility method.

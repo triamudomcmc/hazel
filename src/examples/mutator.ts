@@ -1,5 +1,5 @@
-import type { Debugger, UserDataCollectionType } from '@lib'
-import { FirestoreCollection, IDUtil, Mutators } from '@lib'
+import type { Debugger, UserDataCollectionType } from '../lib'
+import { FirestoreCollection, IDUtil, Mutators } from '../lib'
 
 const mutatorExampleSnippet = async (debug: Debugger) => {
   /*

@@ -1,4 +1,4 @@
-import type { SystemClubIDType } from '@lib'
+import type { SystemClubIDType } from './ClubID'
 
 type Contact =
   | {

@@ -1,7 +1,7 @@
-import type { DataType } from '@lib'
-import { DMap } from '@lib'
 import Excel from 'exceljs'
 
+import type { DataType } from '../../util/data/DataType'
+import { DMap } from '../../util/data/DMap'
 import { Worksheet } from './Worksheet'
 
 export type GenerationPattern = (

@@ -1,9 +1,14 @@
+import * as dotenv from 'dotenv'
 import * as fs from 'fs'
+import * as process from 'process'
 
 import { Debugger } from './debugger/Debugger'
-
 /**
- * The **Runtime()** class setup and regulate the necessary environment configurations.
+ * The **Runtime()** class setup and regulate the necessary environment configurations.<br/>
+ * Some **process environment** can be set in order to update runtime options.<br/>
+ * <pre>.RUNTIME_MODE = 'DEV' | 'PROD' // Runtime mode<br/>
+ * .CUSTOM_ENV_PATH = '/path/to/.env' // Custom .env path<br/>
+ * .SKIP_YES_NO = 'yes' | 'no' // Skip every question</pre>
  * @category Lib
  */
 export class Runtime {
@@ -37,6 +42,9 @@ export class Runtime {
     }
 
     process.env.RUNTIME_MODE = MODE
+
+    const envPath = process.env.CUSTOM_ENV_PATH
+    dotenv.config({ path: envPath })
   }
 
   /**

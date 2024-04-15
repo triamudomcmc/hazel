@@ -1,5 +1,5 @@
-import type { Debugger, EvaluateCollectionType } from '@lib'
-import { ClubRecord, DMap, FirestoreCollection, ID } from '@lib'
+import type { Debugger, EvaluateCollectionType } from '../lib'
+import { ClubRecord, DMap, FirestoreCollection, ID } from '../lib'
 
 export const basicExampleSnippet = async (debug: Debugger) => {
   /*

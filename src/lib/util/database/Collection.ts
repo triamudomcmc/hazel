@@ -117,7 +117,10 @@ export abstract class Collection<T extends DataType, M = any, C = any> {
     refMap.iterateSync((k, v) => {
       const id = v._docID
       delete v._docID
-      nMap[k] = new ReferableMapEntity<G>(v, id)
+
+      const entity = new ReferableMapEntity<G>(v, id)
+      entity.setSynthesized(false)
+      nMap[k] = entity
     })
 
     return nMap
@@ -159,7 +162,7 @@ export abstract class Collection<T extends DataType, M = any, C = any> {
         }`
       )
       if (!autoFetch) return null
-      return new LiveDMap(this.makeReferableEntities(this.fetch()))
+      return await this.fetch()
     }
 
     return new DMap(this.makeReferableEntities(data.content))
@@ -181,7 +184,7 @@ export abstract class Collection<T extends DataType, M = any, C = any> {
         }`
       )
       if (!autoFetch) return null
-      return this.fetchNoRef()
+      return await this.fetchNoRef()
     }
 
     return new DMap(this.clearEntityReference(data.content))

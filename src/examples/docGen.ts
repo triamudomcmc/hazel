@@ -2,7 +2,7 @@ import type {
   Debugger,
   EvaluateCollectionType,
   UserDataCollectionType
-} from '@lib'
+} from '../lib'
 import {
   ClubRecord,
   DMap,
@@ -10,7 +10,7 @@ import {
   EvaluationDocument,
   FirestoreCollection,
   Mutators
-} from '@lib'
+} from '../lib'
 
 export const docGenSnippet = async (debug: Debugger) => {
   const eCollection = new FirestoreCollection<EvaluateCollectionType>(

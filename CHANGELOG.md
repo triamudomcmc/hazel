@@ -1,0 +1,20 @@
+# Changelog
+Further documentation can be found at this url
+<a href="https://htmlpreview.github.io/?https://raw.githubusercontent.com/triamudomcmc/hazel/main/docs/modules.html">Documentation is here :)</a>
+
+## [0.0.1] - 2024-04-15
+### Added
+- CLI support for basic command <br/> (more detail at [CLI's documentation](docs/cli/index.md))
+    #### [ReferableMapEntity\<T>](https://htmlpreview.github.io/?https://raw.githubusercontent.com/triamudomcmc/hazel/main/docs/lib/classes/ReferableMapEntity.html)
+    - ReferableMapEntity.<b>synthesized</b> attribute for determining whether the object is newly created in script or retrieved from the existing source.<br/><br/>
+      (in-script created ReferableMapEntity will always be marked as synthesized and will be created when push to the database)
+    #### [Runtime](https://htmlpreview.github.io/?https://raw.githubusercontent.com/triamudomcmc/hazel/main/docs/lib/classes/Runtime.html)
+    - Runtime options can be now configure through process environment
+### Changed
+- Testing script changed from run to exec. You may use `yarn run exec` instead.
+### Fixed
+- Improper Collection data fetching sequence.
+
+## [0.0.2] - 2024-04-15
+### Fixed
+- CLI library reference issue

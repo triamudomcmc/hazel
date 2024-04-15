@@ -1,7 +1,7 @@
-import type { DataType } from '@lib'
 import Excel from 'exceljs'
 
 import { DataSource } from '../../util/data/DataSource'
+import type { DataType } from '../../util/data/DataType'
 import { Workbook } from './Workbook'
 
 /**

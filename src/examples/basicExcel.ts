@@ -1,6 +1,5 @@
-import type { Debugger, EvaluateCollectionType } from '@lib'
-import { ClubRecord, DMap, FirestoreCollection } from '@lib'
-
+import type { Debugger, EvaluateCollectionType } from '../lib'
+import { ClubRecord, DMap, FirestoreCollection } from '../lib'
 import { Workbook } from '../lib/builtin/data/Workbook'
 import { Worksheet } from '../lib/builtin/data/Worksheet'
 

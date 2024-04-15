@@ -1,13 +1,18 @@
 {
-  "name": "hazel",
-  "version": "0.1.2",
+  "name": "@tucmc/hazel",
+  "version": "0.0.2",
   "engines": {
     "node": ">=13.0.0"
   },
-  "description": "Data Processing Framework",
-  "main": "src/lib/index.ts",
+  "description": "Clubs Data Processing Framework",
+  "main": "dist/lib/index",
+  "bin": {
+    "hazel": "dist/cmd/index.js"
+  },
   "scripts": {
-    "run": "ts-node ./src/runtime.ts",
+    "exec": "ts-node ./src/runtime.ts",
+    "doc": "typedoc",
+    "build": "tsc --declaration",
     "check-types": "tsc --noEmit --pretty && tsc --project cypress --noEmit --pretty"
   },
   "license": "MIT",
@@ -58,11 +63,14 @@
   "dependencies": {
     "@types/readline-sync": "^1.4.4",
     "cli-spinner": "^0.2.10",
+    "commander": "^12.0.0",
     "dotenv": "^16.0.3",
     "exceljs": "^4.3.0",
     "firebase-admin": "^11.5.0",
     "node-object-hash": "^3.0.0",
+    "node-options": "^0.0.7",
     "ora": "5.4.1",
+    "parse-options": "^1.0.6",
     "pdf-node": "^1.0.1",
     "readline-sync": "^1.4.10",
     "ts-transformer-keys": "^0.4.4"
@@ -89,5 +97,21 @@
       "@semantic-release/git",
       "@semantic-release/github"
     ]
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/triamudomcmc/hazel.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/triamudomcmc/hazel/issues"
+  },
+  "homepage": "https://github.com/triamudomcmc/hazel#readme",
+  "types": "./dist/lib/index.d.ts",
+  "keywords": [
+    "hazel"
+  ]
 }

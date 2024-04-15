@@ -1,3 +1,5 @@
+import * as process from 'process'
+
 import { ConsoleColour } from '../debugger/Colour'
 import { Debugger } from '../debugger/Debugger'
 
@@ -42,12 +44,16 @@ export abstract class Database<T> {
       this.debug.warn(
         'accessing production database. Please check your snippet carefully in case of unintended changes.'
       )
-      const con = this.debug.pauseForYNQuestion()
-      if (!con) {
-        throw Error(
-          `${ConsoleColour.RED} user terminated the snippet.${ConsoleColour.RESET}`
-        )
+
+      if (process.env.SKIP_YESNO !== 'yes') {
+        const con = this.debug.pauseForYNQuestion()
+        if (!con) {
+          throw Error(
+            `${ConsoleColour.RED} user terminated the snippet.${ConsoleColour.RESET}`
+          )
+        }
       }
+
       this.debug.info(
         'action authorised. Note: The snippet might manipulate the production database.'
       )

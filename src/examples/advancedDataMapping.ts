@@ -1,5 +1,5 @@
-import type { Debugger, EvaluateCollectionType } from '@lib'
-import { ClubRecord, DMap, FirestoreCollection } from '@lib'
+import type { Debugger, EvaluateCollectionType } from '../lib'
+import { ClubRecord, DMap, FirestoreCollection } from '../lib'
 
 export const advancedDataMappingSnippet = async (debug: Debugger) => {
   /*

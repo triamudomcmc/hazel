@@ -51,6 +51,7 @@ export class FirestoreCollection<T extends DataType> extends Collection<
       ca.forEach((v) => {
         let target
         if (!v._docID) {
+          // Generate new ID
           target = this.dbInstance.doc()
           v._docID = target.id
         } else {

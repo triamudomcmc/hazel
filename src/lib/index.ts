@@ -1,14 +1,20 @@
 // Built-in types
-export { ClubData, ClubDataCollection } from './builtin/types/ClubData'
-export { MainClubIDType, SystemClubIDType } from './builtin/types/ClubID'
-export {
+export type { ClubData, ClubDataCollection } from './builtin/types/ClubData'
+export type { MainClubIDType, SystemClubIDType } from './builtin/types/ClubID'
+export type {
   EvaluateCollectionType,
   EvaluateType,
   IEvaluateResult
 } from './builtin/types/Evaluate'
-export { TrackerCollection, TrackingDetail } from './builtin/types/Tracker'
-export { IUserCred, UserCredCollectionType } from './builtin/types/UserCred'
-export { IUserData, UserDataCollectionType } from './builtin/types/UserData'
+export type { TrackerCollection, TrackingDetail } from './builtin/types/Tracker'
+export type {
+  IUserCred,
+  UserCredCollectionType
+} from './builtin/types/UserCred'
+export type {
+  IUserData,
+  UserDataCollectionType
+} from './builtin/types/UserData'
 
 // Built-ins
 export { ExcelDataSource } from './builtin/data/ExcelDataSource'
@@ -24,7 +30,7 @@ export { Workbook } from './builtin/data/Workbook'
 export { Worksheet } from './builtin/data/Worksheet'
 export { DocumentTemplate } from './builtin/document/DocumentTemplate'
 export { EvaluationDocument } from './builtin/document/EvaluationDocument'
-export { DataType } from './util/data/DataType'
+export type { DataType } from './util/data/DataType'
 
 // Utilities
 export { DataSource } from './util/data/DataSource'
@@ -34,7 +40,8 @@ export { FieldDelete } from './util/data/FieldDelete'
 export { IDMap } from './util/data/IDMap'
 export { LiveDMap } from './util/data/liveDMap'
 export { ReferableMapEntity } from './util/data/ReferableEntity'
-export { Collection, CollectionMutator } from './util/database/Collection'
+export type { CollectionMutator } from './util/database/Collection'
+export { Collection } from './util/database/Collection'
 export { Database } from './util/database/Database'
 export { ConsoleColour } from './util/debugger/Colour'
 export { Debugger } from './util/debugger/Debugger'
@@ -42,3 +49,5 @@ export { Files } from './util/io/Files'
 export { NumberUtil } from './util/Number'
 export { Runtime } from './util/Runtime'
 export { TimestampUtil } from './util/time/Timestamp'
+
+export const VERSION = '0.0.2'

@@ -44,10 +44,19 @@ export class DMapUtil {
         .filter((v) => v.isEdited())
         .map((v): DataChanges => {
           return {
-            type: !v.document ? 'create' : v.isDeleted() ? 'delete' : 'update',
+            type:
+              !v.document || v.synthesized
+                ? 'create'
+                : v.isDeleted()
+                ? 'delete'
+                : 'update',
             _docID: v.document,
             from: v.saved,
-            to: v.document ? v.changes : v.getOriginal()
+            to: v.document
+              ? v.synthesized
+                ? v.data()
+                : v.changes
+              : v.getOriginal()
           }
         })
     } else {
@@ -62,10 +71,19 @@ export class DMapUtil {
         .filter((_, v) => v.isEdited())
         .map((_, v): DataChanges => {
           return {
-            type: !v.document ? 'create' : v.isDeleted() ? 'delete' : 'update',
+            type:
+              !v.document || v.synthesized
+                ? 'create'
+                : v.isDeleted()
+                ? 'delete'
+                : 'update',
             _docID: v.document,
             from: v.saved,
-            to: v.document ? v.changes : v.getOriginal()
+            to: v.document
+              ? v.synthesized
+                ? v.data()
+                : v.changes
+              : v.getOriginal()
           }
         })
     }

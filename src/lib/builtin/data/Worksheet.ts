@@ -1,5 +1,5 @@
-import type { DataType } from '@lib'
-import { DMap } from '@lib'
+import type { DataType } from '../../util/data/DataType'
+import { DMap } from '../../util/data/DMap'
 
 type ExcelRowsRecord<T> = T[] | Record<string, string>[]
 

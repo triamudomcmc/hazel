@@ -2,5 +2,5 @@
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["./src/lib/index.ts"],
   "customCss": "./render/style.css",
-  "out": "docs"
+  "out": "docs/lib"
 }
