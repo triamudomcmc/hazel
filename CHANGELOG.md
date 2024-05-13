@@ -34,3 +34,11 @@ Further documentation can be found at this url
 ## [0.0.6] - 2024-05-13
 ### Fixed
 - modules import namespace bug
+
+## [0.0.7] - 2024-05-14
+### Fixed
+- firebase specified ID docs creation bug
+
+## [0.0.8] - 2024-05-14
+### Added
+- version operator (=, <=, >=, <, >)

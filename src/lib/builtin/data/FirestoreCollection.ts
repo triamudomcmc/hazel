@@ -60,7 +60,11 @@ export class FirestoreCollection<T extends DataType> extends Collection<
 
         switch (v.type) {
           case 'create':
-            batch.create(target, v.to)
+            if (v._docID) {
+              batch.set(target, v.to)
+            } else {
+              batch.create(target, v.to)
+            }
             break
           case 'delete':
             batch.delete(target)

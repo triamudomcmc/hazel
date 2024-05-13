@@ -50,7 +50,7 @@ export const initScript = (options: any) => {
 
   let header = DEFAULT_HEADER
   if (options.version) {
-    header = header.replace('version = "any"', `version = "${VERSION}"`)
+    header = header.replace('version = "any"', `version = "=${VERSION}"`)
   }
 
   const nodeExe = process.argv[0]

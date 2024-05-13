@@ -6,6 +6,7 @@ import * as ts from 'typescript'
 
 import { ConsoleColour, VERSION } from '../../lib'
 import { parseHeader } from './header'
+import { compareWithOp, getVersionWeight, parseVersion } from './version'
 
 export const runScript = (fpath: string, options: any) => {
   // load file
@@ -36,7 +37,15 @@ export const runScript = (fpath: string, options: any) => {
 
   // prepare runtime
   if (property.version !== 'any' && !options.force) {
-    if (property.version !== VERSION) {
+    const appVersionWeight = getVersionWeight(VERSION)
+    const versionObj = parseVersion(property.version)
+    if (!versionObj) {
+      console.log(`${'\u001b[31m'}Error: Unable to parse version operator`)
+      return
+    }
+    const userVersionWeight = getVersionWeight(versionObj.number)
+
+    if (!compareWithOp(appVersionWeight, userVersionWeight, versionObj.op)) {
       console.log(
         `${'\u001b[31m'}Error: This script requires hazel runtime version ${
           property.version

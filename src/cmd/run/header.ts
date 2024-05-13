@@ -25,7 +25,8 @@ const parseProperties = (raw: string): Properties => {
   const propsStr = raw.split('\n')
 
   propsStr.forEach((e) => {
-    const splitted = e.split('=')
+    const splitted = e.split(/=(.*)/s)
+
     if (!splitted[0]) return
     const key = splitted[0].trim()
 
