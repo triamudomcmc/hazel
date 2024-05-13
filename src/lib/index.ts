@@ -50,4 +50,4 @@ export { NumberUtil } from './util/Number'
 export { Runtime } from './util/Runtime'
 export { TimestampUtil } from './util/time/Timestamp'
 
-export const VERSION = '0.0.3'
+export const VERSION = '0.0.4'

@@ -2,12 +2,13 @@
 
 import { Command } from 'commander'
 
+import { VERSION } from '../lib'
 import { initScript } from './init'
 import { runScript } from './run'
 const cli = new Command()
 
 cli
-  .version('0.0.2')
+  .version(VERSION)
   .description(
     'Hazel CLI can be used to run or init single-file hazel script without the creation of node project.'
   )
