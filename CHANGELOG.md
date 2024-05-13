@@ -26,3 +26,7 @@ Further documentation can be found at this url
 ## [0.0.4] - 2024-05-13
 ### Fixed
 - CLI version bug
+
+## [0.0.5] - 2024-05-13
+### Fixed
+- unexported built-in types

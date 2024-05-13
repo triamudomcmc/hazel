@@ -1,5 +1,9 @@
 // Built-in types
 export type { ClubData, ClubDataCollection } from './builtin/types/ClubData'
+export type {
+  ClubDisplay,
+  ClubDisplayCollection
+} from './builtin/types/ClubDisplay'
 export type { MainClubIDType, SystemClubIDType } from './builtin/types/ClubID'
 export type {
   EvaluateCollectionType,
@@ -15,6 +19,7 @@ export type {
   IUserData,
   UserDataCollectionType
 } from './builtin/types/UserData'
+export type { UserRef, UserRefCollection } from './builtin/types/UserRef'
 
 // Built-ins
 export { ExcelDataSource } from './builtin/data/ExcelDataSource'
@@ -50,4 +55,4 @@ export { NumberUtil } from './util/Number'
 export { Runtime } from './util/Runtime'
 export { TimestampUtil } from './util/time/Timestamp'
 
-export const VERSION = '0.0.4'
+export const VERSION = '0.0.5'
