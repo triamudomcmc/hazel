@@ -1,4 +1,4 @@
-import { NumberUtil } from '../number'
+import { NumberUtil } from '../Number'
 
 interface Time {
   t: {

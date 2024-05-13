@@ -30,3 +30,7 @@ Further documentation can be found at this url
 ## [0.0.5] - 2024-05-13
 ### Fixed
 - unexported built-in types
+
+## [0.0.6] - 2024-05-13
+### Fixed
+- modules import namespace bug
