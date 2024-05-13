@@ -18,3 +18,7 @@ Further documentation can be found at this url
 ## [0.0.2] - 2024-04-15
 ### Fixed
 - CLI library reference issue
+
+## [0.0.3] - 2024-05-13
+### Added
+- Add built-in types for **ClubDisplay** and **UserRef (ref)** collection

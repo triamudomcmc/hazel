@@ -1,6 +1,6 @@
 {
   "name": "@tucmc/hazel",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "node": ">=13.0.0"
   },

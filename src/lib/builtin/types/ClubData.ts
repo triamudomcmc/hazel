@@ -1,6 +1,6 @@
 import type { SystemClubIDType } from './ClubID'
 
-type Contact =
+export type Contact =
   | {
       context: string
       type: string

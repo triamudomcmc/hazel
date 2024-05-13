@@ -24,7 +24,6 @@ Default exported data directory is ./resource, which git ignored by default. To 
 Install the package globally using any package manager.
 ```shell
 npm install --global @tucmc/hazel
-yarn add -G @tucmc/hazel
 ```
 Some examples can be found here.<br/>
 🗒️ [Examples](src/examples)<br/>
