@@ -42,3 +42,7 @@ Further documentation can be found at this url
 ## [0.0.8] - 2024-05-14
 ### Added
 - version operator (=, <=, >=, <, >)
+
+## [0.0.9] - 2024-07-19
+### Added
+- updated club IDs according to the system
