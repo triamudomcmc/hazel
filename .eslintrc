@@ -43,6 +43,7 @@
         "@typescript-eslint/no-useless-constructor": "off",
         "import/no-extraneous-dependencies": "off",
         "class-methods-use-this": "off",
+        "node/no-unpublished-import": "off",
         "unused-imports/no-unused-imports": "warn",
         "unused-imports/no-unused-vars": [
           "warn",

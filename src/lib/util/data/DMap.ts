@@ -29,7 +29,7 @@ export class DMap<K extends string, V> {
       })
       this.content = rec
     } else {
-      this.content = content
+      this.content = { ...content }
     }
   }
 
@@ -228,9 +228,11 @@ export class DMap<K extends string, V> {
    * For the document-based database, an inserted key-value will be created after changes are pushed to the server.
    * @param value - Provided value.
    */
-  public insert(value: V): void {
+  public insert(value: V): K {
     const uuid = crypto.randomUUID()
-    this.set(`temp-${uuid}` as K, value)
+    const key = `temp-${uuid}` as K
+    this.set(key, value)
+    return key
   }
 
   /**
