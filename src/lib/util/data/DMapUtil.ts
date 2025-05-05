@@ -103,4 +103,18 @@ export class DMapUtil {
 
     return { changes: changes, isLive: live }
   }
+
+  public static loadChanges(fpath: string): ChangeList {
+    const changes: DataChanges[] = JSON.parse(fs.readFileSync(fpath).toString())
+
+    const deletion = changes.filter((c) => c.type === 'delete')
+    const update = changes.filter((c) => c.type === 'update')
+    const create = changes.filter((c) => c.type === 'create')
+
+    this.debug.info(
+      `change loaded from ${fpath} with ${changes.length} entities affected (${deletion.length} deletion, ${update.length} update, ${create.length} creation).`
+    )
+
+    return { changes: changes, isLive: false }
+  }
 }
