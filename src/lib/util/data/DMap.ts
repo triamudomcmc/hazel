@@ -173,6 +173,19 @@ export class DMap<K extends string, V> {
    * @param c - Value that being searched.
    */
   public hasValue(c: V): boolean {
+    if (typeof c === 'object') {
+      return (
+        this.findValues(
+          (a) =>
+            Object.entries(a as object)
+              .sort()
+              .toString() ===
+            Object.entries(c as object)
+              .sort()
+              .toString()
+        ).length > 0
+      )
+    }
     return this.values().includes(c)
   }
 

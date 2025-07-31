@@ -10,19 +10,25 @@ import { compareWithOp, getVersionWeight, parseVersion } from './version'
 
 export const runScript = (fpath: string, options: any) => {
   // load file
-  let data: Buffer
-  try {
-    data = fs.readFileSync(fpath)
-  } catch (_) {
-    console.log(
-      `${'\u001b[31m'}Unable to open script file ${ConsoleColour.BOLD}${fpath}${
-        ConsoleColour.RESET
-      }`
-    )
-    return
-  }
+  let script: string
 
-  const script = data.toString()
+  if (options.string) {
+    script = fpath
+  } else {
+    let data: Buffer
+    try {
+      data = fs.readFileSync(fpath)
+    } catch (_) {
+      console.log(
+        `${'\u001b[31m'}Unable to open script file ${
+          ConsoleColour.BOLD
+        }${fpath}${ConsoleColour.RESET}`
+      )
+      return
+    }
+
+    script = data.toString()
+  }
 
   console.log('Transpiling source code..')
 

@@ -46,3 +46,7 @@ Further documentation can be found at this url
 ## [0.0.9] - 2024-07-19
 ### Added
 - updated club IDs according to the system
+
+## [0.0.10] - 2025-07-31
+### Added
+- CLI command `run` now support -s, --string options visit CLI documentation for more information.

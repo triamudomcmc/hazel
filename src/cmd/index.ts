@@ -23,6 +23,7 @@ cli
     'Force version exclusive scripts to run with incompatible version.',
     false
   )
+  .option('-s, --string', 'Run the script as string instead of file.', false)
   .action((filePath, options) => {
     runScript(filePath, options)
   })
